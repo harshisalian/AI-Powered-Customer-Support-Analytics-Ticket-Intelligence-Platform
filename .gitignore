@@ -17,6 +17,8 @@ htmlcov/
 .ruff_cache/
 
 *.pkl
+!models/category_model.pkl
+!models/priority_model.pkl
 *.joblib
 
 data/raw/*.csv
