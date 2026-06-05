@@ -1,0 +1,9 @@
+CREATE DATABASE IF NOT EXISTS support_tickets_db;
+
+USE support_tickets_db;
+
+CREATE TABLE IF NOT EXISTS health_check (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    message VARCHAR(100) NOT NULL,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
