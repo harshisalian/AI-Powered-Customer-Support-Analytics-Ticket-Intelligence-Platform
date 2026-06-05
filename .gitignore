@@ -22,6 +22,7 @@ htmlcov/
 data/raw/*.csv
 !data/raw/support_tickets.csv
 data/processed/*.csv
+!data/processed/support_tickets_processed.csv
 
 .DS_Store
 Thumbs.db
