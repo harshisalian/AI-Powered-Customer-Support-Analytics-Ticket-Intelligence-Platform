@@ -1,0 +1,38 @@
+Priority Classification Model Report
+====================================
+
+Best model: logistic_regression
+
+Model: naive_bayes
+Accuracy: 0.9125
+Precision: 0.9229
+Recall: 0.9125
+F1 Score: 0.9151
+
+              precision    recall  f1-score   support
+
+        High       0.97      0.96      0.96        69
+         Low       0.75      0.90      0.82        52
+      Medium       0.97      0.89      0.93       119
+
+    accuracy                           0.91       240
+   macro avg       0.90      0.92      0.90       240
+weighted avg       0.92      0.91      0.92       240
+
+
+Model: logistic_regression
+Accuracy: 1.0000
+Precision: 1.0000
+Recall: 1.0000
+F1 Score: 1.0000
+
+              precision    recall  f1-score   support
+
+        High       1.00      1.00      1.00        69
+         Low       1.00      1.00      1.00        52
+      Medium       1.00      1.00      1.00       119
+
+    accuracy                           1.00       240
+   macro avg       1.00      1.00      1.00       240
+weighted avg       1.00      1.00      1.00       240
+

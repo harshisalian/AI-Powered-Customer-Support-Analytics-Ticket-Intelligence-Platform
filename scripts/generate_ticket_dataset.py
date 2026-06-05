@@ -119,13 +119,23 @@ CATEGORIES = {
 CHANNELS = ["email", "chat", "phone", "web_portal"]
 STATUSES = ["open", "in_progress", "resolved"]
 
-INTENSIFIERS = [
-    "",
-    "This is affecting my work.",
-    "Please resolve this as soon as possible.",
-    "I have already contacted support once.",
-    "This issue is blocking my team.",
-]
+PRIORITY_CONTEXT = {
+    "Low": [
+        "This is not urgent, but I would like it updated when possible.",
+        "There is no immediate impact on my work.",
+        "I can continue using the service for now.",
+    ],
+    "Medium": [
+        "This is affecting my work and I need help soon.",
+        "Please resolve this as soon as possible.",
+        "I have already contacted support once and need an update.",
+    ],
+    "High": [
+        "This is blocking my team and needs immediate attention.",
+        "Our business workflow is stopped because of this issue.",
+        "This is urgent because customers are affected right now.",
+    ],
+}
 
 
 def weighted_priority(priority_weights: dict[str, float]) -> str:
@@ -146,10 +156,10 @@ def build_ticket(ticket_id: int) -> dict[str, object]:
     category_data = CATEGORIES[category]
 
     subject = random.choice(category_data["subjects"])
-    base_description = random.choice(category_data["descriptions"])
-    intensifier = random.choice(INTENSIFIERS)
-    description = f"{base_description} {intensifier}".strip()
     priority = weighted_priority(category_data["priority_weights"])
+    base_description = random.choice(category_data["descriptions"])
+    priority_context = random.choice(PRIORITY_CONTEXT[priority])
+    description = f"{base_description} {priority_context}".strip()
     created_at = random_created_at()
 
     return {
